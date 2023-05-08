@@ -6,7 +6,7 @@ const {mergePdfs} = require('./testpdf')
 const upload = multer({ dest: 'uploads/' }) // multer will put the uploaded files in the uploads directory. 
 const app = express()
 app.use('/static', express.static('public')) // serve the merged pdf file from the public directory 
-const port = 3000
+const port = process.env.PORT || 3000
 
 app.get('/', (req, res) => {
   res.sendFile(path.join(__dirname,"template/index.html")) // __dirname : It will resolve to your project folder. 
